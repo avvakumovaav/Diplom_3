@@ -12,7 +12,7 @@ public class BasePage {
 
   protected By logo = By.xpath("//div[@class='AppHeader_header__logo__2D0X2']//a");
   protected By constructorButton = By.xpath("//*[text()='Конструктор']");
-  protected By userAccountButton = By.xpath("//*[text()='Личный Кабинет']");
+  protected By personalAccountButton = By.xpath("//*[text()='Личный Кабинет']");
 
   protected WebDriver driver;
 
@@ -21,7 +21,12 @@ public class BasePage {
   }
 
   public void waitForLocator(By locator) {
-    new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(locator));
+    new WebDriverWait(driver, Duration.ofSeconds(7)).until(ExpectedConditions.visibilityOfElementLocated(locator));
+  }
+
+  @Step("Нажать на логотип")
+  public void clickLogo() {
+    driver.findElement(logo).click();
   }
 
   @Step("Нажать на кнопку 'Конструктор'")
@@ -31,13 +36,9 @@ public class BasePage {
 
   @Step("Нажать на кнопку 'Личный кабинет'")
   public void clickUserAccountButton() {
-    driver.findElement(userAccountButton).click();
+    driver.findElement(personalAccountButton).click();
   }
 
-  @Step("Нажать на логотип")
-  public void clickLogo() {
-    driver.findElement(logo).click();
-  }
 
 
 }

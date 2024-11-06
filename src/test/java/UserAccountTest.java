@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import pages.LoginPage;
 import pages.MainPage;
-import pages.UserAccountPage;
+import pages.PersonalAccountPage;
 
 public class UserAccountTest extends BaseTest {
 
@@ -29,9 +29,9 @@ public class UserAccountTest extends BaseTest {
 
     mainPage.clickUserAccountButton();
 
-    UserAccountPage userAccountPage = new UserAccountPage(driver);
-    Assert.assertTrue("Сообщение 'В этом разделе вы можете изменить свои персональные данные' не отображается", userAccountPage.isAccountTextDisplayed());
-    Assert.assertEquals("URL не совпадает с ожидаемым", UserAccountPage.PAGE_URL, driver.getCurrentUrl());
+    PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+    Assert.assertTrue("Сообщение 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
+    Assert.assertEquals("URL не совпадает с ожидаемым", PersonalAccountPage.PAGE_URL, driver.getCurrentUrl());
   }
 
   @Test
@@ -49,12 +49,12 @@ public class UserAccountTest extends BaseTest {
 
     mainPage.clickUserAccountButton();
 
-    UserAccountPage userAccountPage = new UserAccountPage(driver);
-    userAccountPage.clickLogoutButton();
+    PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+    personalAccountPage.clickLogoutButton();
 
     mainPage.clickUserAccountButton();
 
-    Assert.assertTrue("Кнопка 'Войти' не отображается", loginPage.isLoginButtonDisplayed());
+    Assert.assertTrue("Кнопка 'Войти' не отображается", loginPage.loginButtonIsDisplayed());
   }
 
   @After

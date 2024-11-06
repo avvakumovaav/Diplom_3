@@ -10,20 +10,20 @@ import org.openqa.selenium.WebDriver;
  */
 public class LoginPage extends BasePage {
 
-  private By emailInput = By.xpath("//label[text()='Email']/following-sibling::input");
-  private By passwordInput = By.xpath("//input[@name='Пароль']");
-  private By loginButton = By.xpath("//button[text()='Войти']");
+  private final By emailInput = By.xpath("//label[text()='Email']/following-sibling::input");
+  private final By passwordInput = By.xpath("//input[@name='Пароль']");
+  private final By loginButton = By.xpath("//button[text()='Войти']");
 
   public LoginPage(WebDriver driver) {
     super(driver);
   }
 
-  @Step("Ввести email: {email}")
+  @Step("Ввести email {email}")
   public void enterEmail(String email) {
     driver.findElement(emailInput).sendKeys(email);
   }
 
-  @Step("Ввести пароль: {password}")
+  @Step("Ввести пароль")
   public void enterPassword(String password) {
     driver.findElement(passwordInput).sendKeys(password);
   }
@@ -33,14 +33,14 @@ public class LoginPage extends BasePage {
     driver.findElement(loginButton).click();
   }
 
-  @Step("Авторизоваться: {email} {password}")
+  @Step("Авторизоваться {email}")
   public void login(User user) {
     enterEmail(user.getEmail());
     enterPassword(user.getPassword());
     clickLoginButton();
   }
 
-  public Boolean isLoginButtonDisplayed() {
+  public Boolean loginButtonIsDisplayed() {
     return driver.findElement(loginButton).isDisplayed();
   }
 }

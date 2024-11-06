@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Страница Личный кабинет
  */
-public class UserAccountPage extends BasePage {
+public class PersonalAccountPage extends BasePage {
 
   public static final String PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
   private By accountText = By.xpath("//p[text()='В этом разделе вы можете изменить свои персональные данные']");
@@ -17,7 +17,7 @@ public class UserAccountPage extends BasePage {
 
   private By logoutButton = By.xpath("//button[text()='Выход']");
 
-  public UserAccountPage(WebDriver driver) {
+  public PersonalAccountPage(WebDriver driver) {
     super(driver);
   }
 

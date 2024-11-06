@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import pages.LoginPage;
 import pages.MainPage;
-import pages.UserAccountPage;
+import pages.PersonalAccountPage;
 
 public class ConstructorTest extends BaseTest {
 
@@ -28,8 +28,8 @@ public class ConstructorTest extends BaseTest {
 
     mainPage.clickUserAccountButton();
 
-    UserAccountPage userAccountPage = new UserAccountPage(driver);
-    Assert.assertTrue("Текст 'В этом разделе вы можете изменить свои персональные данные' не отображается", userAccountPage.isAccountTextDisplayed());
+    PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+    Assert.assertTrue("Текст 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
 
     mainPage.clickConstructorButton();
     Assert.assertTrue("Заголовок 'Соберите бургер' не отображается", mainPage.isConstructorHeaderDisplayed());
@@ -50,8 +50,8 @@ public class ConstructorTest extends BaseTest {
 
     mainPage.clickUserAccountButton();
 
-    UserAccountPage userAccountPage = new UserAccountPage(driver);
-    Assert.assertTrue("Текст 'В этом разделе вы можете изменить свои персональные данные' не отображается", userAccountPage.isAccountTextDisplayed());
+    PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+    Assert.assertTrue("Текст 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
 
     mainPage.clickLogo();
     Assert.assertTrue("Заголовок 'Соберите бургер' не отображается", mainPage.isConstructorHeaderDisplayed());

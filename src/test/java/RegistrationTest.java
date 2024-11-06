@@ -8,7 +8,7 @@ import org.junit.Test;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.RegistrationPage;
-import pages.UserAccountPage;
+import pages.PersonalAccountPage;
 
 public class RegistrationTest extends BaseTest {
 
@@ -25,17 +25,17 @@ public class RegistrationTest extends BaseTest {
     registrationPage.register(user);
 
     LoginPage loginPage = new LoginPage(driver);
-    Assert.assertTrue(loginPage.isLoginButtonDisplayed());
+    Assert.assertTrue(loginPage.loginButtonIsDisplayed());
 
     loginPage.login(user);
 
     MainPage mainPage = new MainPage(driver);
     mainPage.clickUserAccountButton();
 
-    UserAccountPage userAccountPage = new UserAccountPage(driver);
-    Assert.assertEquals("Некорректное имя пользователя", user.getName(), userAccountPage.getName());
-    Assert.assertEquals("Некорректный email пользователя ", user.getEmail(), userAccountPage.getEmail());
-    Assert.assertTrue("Сообщение \"В этом разделе вы можете изменить свои персональные данные\" не отображается", userAccountPage.isAccountTextDisplayed());
+    PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
+    Assert.assertEquals("Некорректное имя пользователя", user.getName(), personalAccountPage.getName());
+    Assert.assertEquals("Некорректный email пользователя ", user.getEmail(), personalAccountPage.getEmail());
+    Assert.assertTrue("Сообщение \"В этом разделе вы можете изменить свои персональные данные\" не отображается", personalAccountPage.isAccountTextDisplayed());
   }
 
   @Test

@@ -15,8 +15,7 @@ public class RegistrationTest extends BaseTest {
   private User user;
 
   @Test
-  @DisplayName("Успешная регистрация.\n" +
-          "Ошибку для некорректного пароля. Минимальный пароль — шесть символов.")
+  @DisplayName("Успешная регистрация.")
   public void checkUserRegistration() {
     user = User.createUser();
 
@@ -39,7 +38,7 @@ public class RegistrationTest extends BaseTest {
   }
 
   @Test
-  @DisplayName("Ошибка для некорректного пароля. Минимальный пароль — шесть символов.")
+  @DisplayName("Ошибка для некорректного пароля (минимальный пароль — шесть символов).")
   public void checkUserRegistrationWithInvalidPassword() {
     user = User.createUserWithInvalidPassword();
 

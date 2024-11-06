@@ -10,27 +10,27 @@ import org.openqa.selenium.WebDriver;
 public class PersonalAccountPage extends BasePage {
 
   public static final String PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
-  private By accountText = By.xpath("//p[text()='В этом разделе вы можете изменить свои персональные данные']");
-  private By nameInput = By.xpath("//label[text()='Имя']/following-sibling::input");
+  private final By accountMsg = By.xpath("//p[text()='В этом разделе вы можете изменить свои персональные данные']");
+  private final By nameInput = By.xpath("//label[text()='Имя']/following-sibling::input");
 
-  private By emailInput = By.xpath("//label[text()='Логин']/following-sibling::input");
+  private final By emailInput = By.xpath("//label[text()='Логин']/following-sibling::input");
 
-  private By logoutButton = By.xpath("//button[text()='Выход']");
+  private final By logoutButton = By.xpath("//button[text()='Выход']");
 
   public PersonalAccountPage(WebDriver driver) {
     super(driver);
   }
 
   public Boolean isAccountTextDisplayed() {
-    return driver.findElement(accountText).isDisplayed();
+    return driver.findElement(accountMsg).isDisplayed();
   }
 
-  @Step("Получить значение инпута 'Имя'")
+  @Step("Получить значение поля 'Имя'")
   public String getName() {
     return driver.findElement(nameInput).getAttribute("value");
   }
 
-  @Step("Получить значение инпута 'Email'")
+  @Step("Получить значение поля 'Email'")
   public String getEmail() {
     return driver.findElement(emailInput).getAttribute("value");
   }

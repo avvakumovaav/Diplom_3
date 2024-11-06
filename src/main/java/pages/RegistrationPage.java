@@ -12,12 +12,12 @@ public class RegistrationPage extends BasePage {
 
   private static final String PAGE_URL = "https://stellarburgers.nomoreparties.site/register";
 
-  private By nameInput = By.xpath("//label[text()='Имя']/following-sibling::input");
-  private By emailInput = By.xpath("//label[text()='Email']/following-sibling::input");
-  private By passwordInput = By.xpath("//input[@name='Пароль']");
-  private By regButton = By.xpath("//button[text()='Зарегистрироваться']");
-  private By errorText = By.xpath("//p[text()='Некорректный пароль']");
-  private By loginLink = By.linkText("Войти");
+  private final By nameInput = By.xpath("//label[text()='Имя']/following-sibling::input");
+  private final By emailInput = By.xpath("//label[text()='Email']/following-sibling::input");
+  private final By passwordInput = By.xpath("//input[@name='Пароль']");
+  private final By regButton = By.xpath("//button[text()='Зарегистрироваться']");
+  private final By invalidPasswordMsg = By.xpath("//p[text()='Некорректный пароль']");
+  private final By loginLink = By.linkText("Войти");
 
   public RegistrationPage(WebDriver driver) {
     super(driver);
@@ -33,7 +33,7 @@ public class RegistrationPage extends BasePage {
     driver.findElement(emailInput).sendKeys(email);
   }
 
-  @Step("Ввести пароля: {password}")
+  @Step("Ввести пароль")
   public void enterPassword(String password) {
     driver.findElement(passwordInput).sendKeys(password);
   }
@@ -49,8 +49,8 @@ public class RegistrationPage extends BasePage {
     driver.findElement(loginLink).click();
   }
 
-  public Boolean isErrorTextDisplayed() {
-    return driver.findElement(errorText).isDisplayed();
+  public Boolean errorTextIsDisplayed() {
+    return driver.findElement(invalidPasswordMsg).isDisplayed();
   }
 
   @Step("Зарегистрировать пользователя с именем {name}, email {email} и паролем {password}")

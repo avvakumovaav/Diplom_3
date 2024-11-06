@@ -16,9 +16,9 @@ public class MainPage extends BasePage {
 
   private static final String PAGE_URL = "https://stellarburgers.nomoreparties.site/";
 
-  private By header = By.xpath("//h1[text()='Соберите бургер']");
+  private final By header = By.xpath("//h1[text()='Соберите бургер']");
 
-  private By loginButton = By.xpath("//button[text()='Войти в аккаунт']");
+  private final By loginButton = By.xpath("//button[text()='Войти в аккаунт']");
 
   public By bunsTab = By.xpath("//span[text()='Булки']/parent::div");
   public By saucesTab = By.xpath("//span[text()='Соусы']/parent::div");
@@ -71,16 +71,16 @@ public class MainPage extends BasePage {
 
   private void waitForElementInViewport(By locator) {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    wait.until(driver -> isElementInViewport(locator));
+    wait.until(driver -> checkElementInViewport(locator));
   }
 
-  public boolean isSectionTabSelected(By locator) {
+  public boolean sectionTabIsSelected(By locator) {
     WebElement element = driver.findElement(locator);
     return element.getAttribute("class").contains("tab_tab_type_current__2BEPc");
   }
 
 
-  public boolean isElementInViewport(By locator) {
+  public boolean checkElementInViewport(By locator) {
     WebElement element = driver.findElement(locator);
     return (Boolean) ((JavascriptExecutor) driver).executeScript(
             "var rect = arguments[0].getBoundingClientRect();" +

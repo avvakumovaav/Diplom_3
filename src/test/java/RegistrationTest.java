@@ -47,7 +47,7 @@ public class RegistrationTest extends BaseTest {
     registrationPage.open();
     registrationPage.register(user);
 
-    Assert.assertTrue("Сообщение об ошибке некорректного пароля не отображается", registrationPage.isErrorTextDisplayed());
+    Assert.assertTrue("Сообщение об ошибке некорректного пароля не отображается", registrationPage.errorTextIsDisplayed());
   }
 
   @After

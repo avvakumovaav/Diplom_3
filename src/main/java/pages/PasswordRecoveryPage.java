@@ -11,7 +11,7 @@ public class PasswordRecoveryPage extends BasePage {
 
   private static final String PAGE_URL = "https://stellarburgers.nomoreparties.site/register";
 
-  private By loginLink = By.linkText("Войти");
+  private final By loginLink = By.linkText("Войти");
 
   public PasswordRecoveryPage(WebDriver driver) {
     super(driver);

@@ -27,9 +27,8 @@ public class ConstructorTest extends BaseTest {
     loginPage.login(user);
 
     mainPage.clickUserAccountButton();
-
     PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
-    Assert.assertTrue("Текст 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
+    Assert.assertTrue("Сообщение 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
 
     mainPage.clickConstructorButton();
     Assert.assertTrue("Заголовок 'Соберите бургер' не отображается", mainPage.isConstructorHeaderDisplayed());
@@ -51,7 +50,7 @@ public class ConstructorTest extends BaseTest {
     mainPage.clickUserAccountButton();
 
     PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
-    Assert.assertTrue("Текст 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
+    Assert.assertTrue("Сообщение 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
 
     mainPage.clickLogo();
     Assert.assertTrue("Заголовок 'Соберите бургер' не отображается", mainPage.isConstructorHeaderDisplayed());
@@ -66,7 +65,7 @@ public class ConstructorTest extends BaseTest {
     mainPage.clickFillingsTab();
 
     Assert.assertTrue("Вкладка 'Начинки' не выбрана", mainPage.sectionTabIsSelected(mainPage.fillingsTab));
-    Assert.assertTrue("Секция 'Начинки' не видна на экране", mainPage.checkElementInViewport(mainPage.fillingsSection));
+    Assert.assertTrue("Секция 'Начинки' не видна", mainPage.checkElementInViewport(mainPage.fillingsSection));
   }
 
   @Test

@@ -31,7 +31,7 @@ public class UserAccountTest extends BaseTest {
 
     PersonalAccountPage personalAccountPage = new PersonalAccountPage(driver);
     Assert.assertTrue("Сообщение 'В этом разделе вы можете изменить свои персональные данные' не отображается", personalAccountPage.isAccountTextDisplayed());
-    Assert.assertEquals("URL не совпадает с ожидаемым", PersonalAccountPage.PAGE_URL, driver.getCurrentUrl());
+    Assert.assertEquals("URL некорректный", PersonalAccountPage.PAGE_URL, driver.getCurrentUrl());
   }
 
   @Test
